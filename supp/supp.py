@@ -2,7 +2,7 @@ import itertools as it
 from random import randint
 
 
-def generateSolution(set_items, length):
+def generateSolution(set_items, length=1):
     set_items = list(set_items).copy()
     some_solution = []
     for i in range(length):
@@ -13,8 +13,9 @@ def generateSolution(set_items, length):
     return some_solution
 
 
-def solutionCombinations(options, start=1):
-    stop = len(options) + 1
+def solutionCombinations(options, start=1, stop=-1):
+    if stop == -1:
+        stop = len(options) + 1
     all_combinations = []
     for i in range(start, stop + 1):
         all_combinations.extend(list(it.combinations(options, i)))
